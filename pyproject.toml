@@ -1,0 +1,21 @@
+# pyproject.toml — el paquete de Python de Minka (Tareas y Agenda): dependencias y extras
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minka"
+version = "0.1.0"
+description = "Minka: las tareas y la agenda de la plataforma Qillqa (tareas con vínculos, la matriz, la agenda con su .ics, lo que se agenda solo y la programación del día), que funciona dentro de Qillqa o solo con el anfitrión mínimo de Tiqsi."
+readme = "README.md"
+license = "AGPL-3.0-only"
+requires-python = ">=3.11"
+dependencies = ["tiqsi", "fastapi>=0.110", "pydantic-settings>=2", "PyJWT>=2.8", "python-multipart>=0.0.9",
+                "sqlalchemy[asyncio]>=2", "asyncpg>=0.29"]
+
+[project.optional-dependencies]
+sola = ["uvicorn[standard]>=0.30"]
+pruebas = ["pytest>=8", "httpx>=0.27"]
+
+[tool.setuptools]
+packages = ["minka"]
